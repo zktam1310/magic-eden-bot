@@ -1,0 +1,7 @@
+* {
+    @apply text-white;
+}
+
+.max_width_container {
+    @apply max-w-7xl mx-auto;
+}

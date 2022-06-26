@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <div class="max_width_container view_container">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -19,10 +21,14 @@ export default Vue.extend({
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@200;400;600&display=swap");
-html, body {
+html,
+body {
   @apply bg-black;
 }
 #app {
   font-family: "Barlow", sans-serif;
+}
+.view_container {
+  @apply py-10 px-5;
 }
 </style>

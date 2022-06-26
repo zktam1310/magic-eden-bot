@@ -1,20 +1,26 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import DashboardView from "../views/DashboardView.vue";
+import HistoryView from "../views/HistoryView.vue";
+import PageNotFoundView from "../views/PageNotFoundView.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "home",
+    name: "Collections",
     component: HomeView,
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: DashboardView,
+    path: "/history",
+    name: "History",
+    component: HistoryView,
+  },
+  {
+    path: "*",
+    name: "Page Not Found",
+    component: PageNotFoundView,
   },
 ];
 
@@ -24,13 +30,13 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to,from,next) => {
+router.beforeEach((to, from, next) => {
   if (to.name) {
     document.title = to.name + " | Magic Eden Bot";
   } else {
     document.title = "Magic Eden Bot";
   }
   next();
-})
+});
 
 export default router;
